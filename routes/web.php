@@ -36,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
     
     // Donation routes
     Route::get('/donations', [DonationController::class, 'index'])->name('donations.index');
+    
     Route::get('/donations/create/{campaign}', [DonationController::class, 'create'])->name('donations.create');
     Route::post('/donations/store', [DonationController::class, 'store'])->name('donations.store');
     Route::get('/donations/{donation}/edit', [DonationController::class, 'edit'])->name('donations.edit');
