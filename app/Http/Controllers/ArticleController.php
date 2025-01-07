@@ -138,5 +138,5 @@ class ArticleController extends Controller
 
         return redirect()->route('articles.index')->with('success', 'Artikel berhasil dihapus!');
     }
-
+// tes doang bang
 }
