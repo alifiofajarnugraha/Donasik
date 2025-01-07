@@ -21,7 +21,7 @@
                     </div>
                     <h5 class="card-title fw-bold text-primary">Donasi Barang</h5>
                     <p class="card-text text-muted">Kirimkan barang bekas yang layak pakai untuk mereka yang membutuhkan.</p>
-                    <a href="{{ url('/donasi') }}" class="btn btn-primary rounded-pill px-4">Donasi Sekarang</a>
+                    <a href="{{ url('/donations') }}" class="btn btn-primary rounded-pill px-4">Donasi Sekarang</a>
                 </div>
             </div>
         </div>
