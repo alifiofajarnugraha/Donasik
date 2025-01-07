@@ -16,7 +16,7 @@
             <div class="col-md-6 mb-4 mb-md-0">
                 <h1 class="display-4 text-dark mb-4">Wujudkan Kepedulian Anda Melalui Donasi</h1>
                 <p class="lead text-muted mb-4">DONASIK adalah platform donasi online terpercaya yang menghubungkan para donatur dengan mereka yang membutuhkan bantuan.</p>
-                <a href="#" class="btn btn-primary btn-lg me-3">Mulai Donasi</a>
+                <a href="{{ route('login') }}" class="btn btn-primary btn-lg me-3">Mulai Donasi</a>
                 <a href="#learn-more" class="btn btn-outline-primary btn-lg">Pelajari Lebih Lanjut</a>
             </div>
             <div class="col-md-6">
@@ -96,5 +96,3 @@
             </div>
         </div>
     </div>
-
-   
