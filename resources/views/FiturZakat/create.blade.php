@@ -43,8 +43,17 @@
             <label for="cicilan" class="form-label">Cicilan</label>
             <input type="number" class="form-control" id="cicilan" name="cicilan" step="0.01" value="0">
         </div>
-
         
+        <div class="mb-3">
+            <label for="pantiasuhan" class="form-label">Pilih Pantiasuhan:</label>
+            <select class="form-control" id="pantiasuhan" name="pantiasuhan" required>
+                <option value="">-- Pilih Pantiasuhan --</option>
+                <option value="pantiasuhan1">Pantiasuhan 1</option>
+                <option value="pantiasuhan2">Pantiasuhan 2</option>
+                <option value="pantiasuhan3">Pantiasuhan 3</option>
+                <option value="pantiasuhan4">Pantiasuhan 4</option>
+            </select>
+        </div>
 
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>

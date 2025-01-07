@@ -7,12 +7,16 @@
 
 @section('content')
 <div class="container mt-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Bantu Mereka yang Membutuhkan</h2>
+        <p class="text-muted">Gabung bersama kami dalam platform donasi terbaik.</p>
+    </div>
     <div class="row g-4 justify-content-center">
         <!-- Donasi Barang Section -->
         <div class="col-md-4">
-            <div class="card shadow-lg border-0 rounded-4">
+            <div class="card shadow border-0 rounded-4 hover-shadow">
                 <div class="card-body text-center p-4">
-                    <div class="icon bg-primary text-white rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                    <div class="icon bg-primary text-white rounded-circle mb-3 mx-auto" style="width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;">
                         <i class="bi bi-box-seam fs-4"></i>
                     </div>
                     <h5 class="card-title fw-bold text-primary">Donasi Barang</h5>
@@ -24,9 +28,9 @@
 
         <!-- Galang Dana Section -->
         <div class="col-md-4">
-            <div class="card shadow-lg border-0 rounded-4">
+            <div class="card shadow border-0 rounded-4 hover-shadow">
                 <div class="card-body text-center p-4">
-                    <div class="icon bg-success text-white rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                    <div class="icon bg-success text-white rounded-circle mb-3 mx-auto" style="width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;">
                         <i class="bi bi-people fs-4"></i>
                     </div>
                     <h5 class="card-title fw-bold text-success">Galang Dana</h5>
@@ -38,9 +42,9 @@
 
         <!-- Zakat & Donasi Uang Section -->
         <div class="col-md-4">
-            <div class="card shadow-lg border-0 rounded-4">
+            <div class="card shadow border-0 rounded-4 hover-shadow">
                 <div class="card-body text-center p-4">
-                    <div class="icon bg-warning text-white rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                    <div class="icon bg-warning text-white rounded-circle mb-3 mx-auto" style="width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;">
                         <i class="bi bi-wallet2 fs-4"></i>
                     </div>
                     <h5 class="card-title fw-bold text-warning">Zakat & Donasi Uang</h5>
@@ -52,23 +56,23 @@
 
         <!-- Daftar Volunteer Section -->
         <div class="col-md-6">
-            <div class="card shadow-lg border-0 rounded-4">
+            <div class="card shadow border-0 rounded-4 hover-shadow">
                 <div class="card-body text-center p-4">
-                    <div class="icon bg-info text-white rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                    <div class="icon bg-info text-white rounded-circle mb-3 mx-auto" style="width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;">
                         <i class="bi bi-person-plus fs-4"></i>
                     </div>
                     <h5 class="card-title fw-bold text-info">Daftar Volunteer</h5>
                     <p class="card-text text-muted">Bergabunglah sebagai volunteer untuk membantu mereka yang membutuhkan.</p>
-                    <a href='volunteer'class="btn btn-info rounded-pill px-4">Daftar Sekarang</a>
+                    <a href="{{ url('/volunteer') }}" class="btn btn-info rounded-pill px-4">Daftar Sekarang</a>
                 </div>
             </div>
         </div>
 
         <!-- Artikel Section -->
         <div class="col-md-6">
-            <div class="card shadow-lg border-0 rounded-4">
+            <div class="card shadow border-0 rounded-4 hover-shadow">
                 <div class="card-body text-center p-4">
-                    <div class="icon bg-danger text-white rounded-circle mb-3 mx-auto" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                    <div class="icon bg-danger text-white rounded-circle mb-3 mx-auto" style="width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;">
                         <i class="bi bi-newspaper fs-4"></i>
                     </div>
                     <h5 class="card-title fw-bold text-danger">Artikel Terbaru</h5>
@@ -79,4 +83,13 @@
         </div>
     </div>
 </div>
+
+<style>
+    .hover-shadow {
+        transition: box-shadow 0.3s ease;
+    }
+    .hover-shadow:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+</style>
 @endsection

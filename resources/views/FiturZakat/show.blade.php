@@ -22,9 +22,7 @@
     <div class="mb-3">
         <strong>Zakat yang harus dibayar:</strong> {{ number_format($zakat->zakat, 2) }}
     </div>
-    <div class="mb-3">
-        <strong>Panti Asuhan:</strong> {{ $zakat->pantiAsuhan->name ?? 'Tidak ada' }}
-    </div>
+    
     <div class="mb-3">
         <strong>Status Pembayaran:</strong> {{ $zakat->is_paid ? 'Sudah Dibayar' : 'Belum Dibayar' }}
     </div>
