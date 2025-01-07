@@ -42,10 +42,8 @@ class DonationController extends Controller
 
     public function index()
     {
-        // Ambil semua donasi tanpa memfilter berdasarkan nama donatur
-        $donations = Donation::with('campaign')->latest()->get();
-
-        return view('donations.index', compact('donations'));
+        $campaigns = Campaign::all(); // Fetch all campaigns from the database
+        return view('donations.index', compact('campaigns')); // Pass the campaigns to the view
     }
 
     public function edit(Donation $donation)
@@ -89,4 +87,14 @@ class DonationController extends Controller
         return redirect()->route('donations.index')
             ->with('success', 'Donasi berhasil dihapus!');
     }
+
+    public function show()
+    {
+        // Ambil semua donasi tanpa memfilter berdasarkan nama donatur
+        $donations = Donation::with('campaign')->latest()->get();
+
+        return view('donations.show', compact('donations'));
+    }
+
+
 }
