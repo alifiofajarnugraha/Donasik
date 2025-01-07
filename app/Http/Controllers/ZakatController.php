@@ -2,64 +2,90 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Zakat;
 use Illuminate\Http\Request;
+use App\Models\Zakat;
 
 class ZakatController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        // Mengambil semua data zakat
+        $zakats = Zakat::all();
+        return view('FiturZakat.index', compact('zakats'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        // Mengarahkan ke halaman form tambah zakat
+        return view('FiturZakat.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        // Validasi data input
+        $validated = $request->validate([
+            'nama' => 'required|string|max:255',
+            'penghasilan' => 'required|numeric|min:0',
+            'thr_bonus' => 'nullable|numeric|min:0',
+            'utang' => 'nullable|numeric|min:0',
+            'cicilan' => 'nullable|numeric|min:0',
+        ]);
+
+        // Perhitungan zakat
+        $validated['zakat'] = ($validated['penghasilan'] + $validated['thr_bonus'] - $validated['utang'] - $validated['cicilan']) * 0.025;
+
+        // Simpan data zakat
+        Zakat::create($validated);
+
+        return redirect()->route('zakat.index')->with('success', 'Data Zakat berhasil ditambahkan!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Zakat $zakat)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Zakat $zakat)
     {
-        //
+        // Mengarahkan ke halaman edit zakat
+        return view('FiturZakat.edit', compact('zakat'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Zakat $zakat)
     {
-        //
+        // Validasi data input
+        $validated = $request->validate([
+            'nama' => 'required|string|max:255',
+            'penghasilan' => 'required|numeric|min:0',
+            'thr_bonus' => 'nullable|numeric|min:0',
+            'utang' => 'nullable|numeric|min:0',
+            'cicilan' => 'nullable|numeric|min:0',
+        ]);
+
+        // Perhitungan zakat
+        $validated['zakat'] = ($validated['penghasilan'] + $validated['thr_bonus'] - $validated['utang'] - $validated['cicilan']) * 0.025;
+
+        // Update data zakat
+        $zakat->update($validated);
+
+        return redirect()->route('zakat.index')->with('success', 'Data Zakat berhasil diperbarui!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Zakat $zakat)
     {
-        //
+        // Hapus data zakat
+        $zakat->delete();
+
+        return redirect()->route('zakat.index')->with('success', 'Data Zakat berhasil dihapus!');
+    }
+
+    public function pay(Zakat $zakat)
+    {
+        // Menandai zakat sebagai sudah dibayar
+        $zakat->is_paid = true;
+        $zakat->save();
+
+        return redirect()->route('zakat.index')->with('success', 'Zakat berhasil dibayarkan!');
+    }
+
+    public function show(Zakat $zakat)
+    {
+        // Menampilkan halaman detail zakat
+        return view('FiturZakat.show', compact('zakat'));
     }
 }
